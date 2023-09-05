@@ -9,5 +9,5 @@ export function useFetch<T = unknown>(url: string) {
         })
     }, [url])
 
-    return data
+    return { data }
 }

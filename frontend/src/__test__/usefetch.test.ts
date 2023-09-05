@@ -1,4 +1,7 @@
 
-describe('Should get products from database', () => {
+import { useFetch } from './../hooks/useFetch';
+describe('Get products from database', () => {
+    it('Should list products')
+
 
 })

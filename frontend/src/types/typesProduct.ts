@@ -5,3 +5,12 @@ export default interface Product {
     sales_price: number;
 }
 
+
+export default interface Packs {
+    id: number,
+    pack_id: number,
+    product_id: number,
+    qty: number
+
+
+}

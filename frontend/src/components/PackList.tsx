@@ -1,19 +1,22 @@
 
 
 import useFetch from "../hooks/useFetch"
+import Pack from '../../src/types/typesProduct'
+
+import { useEffect, useState } from 'react';
 
 
-interface Pack {
-    id: number,
-    pack_id: number,
-    product_id: number,
-    qty: number
-
-}
 
 
 function PackList() {
     const { data, loading, error } = useFetch<Pack[]>('/packs')
+    const [packs, setPacks] = useState<Pack[] | null>(null)
+
+    useEffect(() => {
+        if (data) {
+            setPacks(data);
+        }
+    }, [data]);
 
     if (loading) return <div>Carregando</div>
     if (error) return <div>Ocorreu um erro {error.message}</div>
@@ -22,16 +25,15 @@ function PackList() {
             <h2>Pack list</h2>
             <div className="container-pack">
                 <ul>
-                    {data && data.map((packs: Pack) => (
-                        <li className="pack-list" key={packs.id}>
-                            <div>{packs.id}</div>
-                            <div>{packs.pack_id}</div>
-                            <div>{packs.product_id}</div>
-                            <div>{packs.qty}</div>
-                            <button>editar</button>
-                        </li>
+                    {packs &&
+                        packs.map((pack: Pack) => (
+                            <li className="pack-list" key={pack.product_id}>
+                                <div>{pack.pack_id}</div>
+                                <div>{pack.qty}</div>
+                                <button>editar</button>
+                            </li>
 
-                    ))}
+                        ))}
                 </ul>
             </div>
         </>
@@ -39,3 +41,4 @@ function PackList() {
 }
 
 export default PackList
+

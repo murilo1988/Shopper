@@ -29,3 +29,7 @@ export const updateProductPrice = (req: Request, res: Response) => {
         }
     });
 };
+export function getAllPacks(arg0: string, getAllPacks: any) {
+    throw new Error('Function not implemented.');
+}
+

@@ -1,6 +1,7 @@
 # Shopper# Shopper
 
-Descrição curta do seu projeto.
+Projeto consiste em uma area para edição de preços com reuisitos especificos a serem seguidos.
+
 
 ## Requisitos de Instalação
 
@@ -16,13 +17,13 @@ Siga estas etapas para configurar e executar o projeto:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-projeto.git
+   git clone https://github.com/murilo1988/Shopper.git
 
     Navegue para o diretório do projeto:
 
     bash
 
-cd seu-projeto
+cd shopper
 
 Instale as dependências usando npm:
 
@@ -59,6 +60,8 @@ Este projeto utiliza as seguintes dependências principais:
     React - Uma biblioteca JavaScript para criar interfaces de usuário.
     React DOM - Pacote responsável pela manipulação do DOM em aplicativos React.
     Sass - Uma linguagem de folha de estilo que se compila em CSS.
+    react-toastify - Um biblioteca para tratar erros.
+    
 
 Além disso, o projeto também faz uso das seguintes dependências relacionadas ao servidor:
 

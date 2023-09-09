@@ -48,7 +48,7 @@ function ProductList() {
         }
 
         axios
-            .put(`/api/products/${code}`, { sales_price: newPrice })
+            .put(`http://localhost:3000/api/products/${code}`, { sales_price: newPrice })
             .then((response) => {
                 if (response.status === 200) {
                     if (products) {

@@ -3,6 +3,8 @@ import useFetch from "../hooks/useFetch";
 import axios from "axios";
 import Product from '../types/typesProduct'
 import '../App.scss'
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function ProductList() {
@@ -26,24 +28,24 @@ function ProductList() {
     const handleSavePrice = (code: number, currentSalesPrice: number, costPrice: number) => {
         if (editedPrice === null) {
             // Não há preço editado
-            console.error("O preço editado é inválido.");
+            toast.error("O preço editado é inválido.");
             return;
         }
 
         const newPrice = parseFloat(editedPrice);
 
         if (newPrice <= costPrice) {
-            console.error("O novo preço não pode ser menor ou igual ao cost_price.");
+            toast.error("O novo preço não pode ser menor ou igual ao cost_price.");
             return;
         }
 
         if (newPrice > currentSalesPrice * 1.10) {
-            console.error("O novo preço não pode aumentar mais de 10% do preço atual.");
+            toast.error("O novo preço não pode aumentar mais de 10% do preço atual.");
             return;
         }
 
         if (newPrice < currentSalesPrice * 0.90) {
-            console.error("O novo preço não pode ser menor que 90% do preço atual.");
+            toast.error("O novo preço não pode ser menor que 90% do preço atual.");
             return;
         }
 
@@ -94,7 +96,7 @@ function ProductList() {
                                         <button onClick={() => handleSavePrice(product.code, product.sales_price, product.cost_price)}>Salvar</button>
                                     </>
                                 ) : (
-                                    <div>{product.sales_price}</div>
+                                    <div>R${product.sales_price}</div>
                                 )}
                                 <br />
                                 <button onClick={() => handleEditPrice(product.code, product.sales_price.toString())}>Editar</button>
